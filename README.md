@@ -125,6 +125,36 @@ This technique involves repeated authentication attempts to gain unauthorized ac
 
 ## Skills Demonstrated
 
+
+## Detection Evidence
+
+### 1. Failed SSH Authentication Events
+
+The following Splunk search identifies failed SSH authentication attempts collected from `/var/log/auth.log`.
+
+![Failed SSH Events](screenshots/01-failed-ssh-events.png)
+
+### 2. SSH Brute-Force Detection
+
+Multiple failed authentication attempts from the same source IP were correlated using SPL. The detection triggers when five or more failed attempts are observed.
+
+![SSH Brute Force Detection](screenshots/02-brute-force-detection.png)
+
+### 3. Splunk Alert Configuration
+
+The brute-force detection was converted into a Splunk alert to provide automated detection of suspicious SSH authentication activity.
+
+![Splunk Alert Configuration](screenshots/03-alert-configuration.png)
+
+### 4. Triggered Security Alert
+
+After the threshold was exceeded, Splunk generated an alert for the suspicious authentication activity.
+
+![Triggered Splunk Alert](screenshots/04-alert-triggered.png)
+
+
+## Skills Demonstrated
+
 - Splunk Enterprise
 - Linux log monitoring
 - SSH authentication analysis
