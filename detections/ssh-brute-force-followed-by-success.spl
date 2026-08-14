@@ -1,0 +1,8 @@
+index=security ("Failed password" OR "Accepted password")
+| rex "from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| rex "for (?:invalid user )?(?<username>\S+) from"
+| eval status=if(match(_raw,"Failed password"),"failure","success")
+| stats count(eval(status="failure")) AS failed_attempts count(eval(status="success")) AS successful_logins earliest(_time) AS first_seen latest(_time) AS last_seen by src_ip username
+| where failed_attempts >= 5 AND successful_logins >= 1
+| convert ctime(first_seen) ctime(last_seen)
+| sort - failed_attempts

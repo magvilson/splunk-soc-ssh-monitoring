@@ -1,0 +1,5 @@
+index=security "Failed password"
+| rex "from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| rex "for (?:invalid user )?(?<username>\S+) from"
+| table _time src_ip username _raw
+| sort - _time
