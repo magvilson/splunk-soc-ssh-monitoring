@@ -13,6 +13,19 @@
 
 ---
 
+## Technologies & Tools
+
+| Technology | Purpose |
+|---|---|
+| Splunk Enterprise | SIEM, log ingestion, searching, detection, and alerting |
+| SPL | Security event searches and detection logic |
+| Ubuntu Server | Splunk server and SSH authentication log source |
+| Linux `/var/log/auth.log` | Authentication telemetry |
+| SSH | Authentication activity monitored in the lab |
+| Git & GitHub | Version control and project documentation |
+| MITRE ATT&CK | Mapping detected activity to adversary techniques |
+
+---
 ## Overview
 
 This project demonstrates the implementation of a small Security Operations Center (SOC) monitoring environment using Splunk Enterprise.
