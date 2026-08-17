@@ -1,5 +1,18 @@
 # Splunk SOC SSH Monitoring & Brute-Force Detection Lab
 
+## Key Results
+
+- Built a Splunk Enterprise SOC monitoring environment for Linux SSH authentication logs.
+- Ingested and analyzed `/var/log/auth.log` events in a dedicated `security` index.
+- Developed SPL searches to identify failed SSH authentication attempts and extract source IP addresses and usernames.
+- Detected 6 failed SSH login attempts from `192.168.64.1` targeting the invalid user `fakeuser`.
+- Implemented a brute-force detection threshold of 5 failed authentication attempts.
+- Configured a Splunk alert to automatically detect authentication activity exceeding the defined threshold.
+- Investigated the triggered security event and documented the incident analysis.
+- Mapped the observed SSH brute-force behavior to MITRE ATT&CK.
+
+---
+
 ## Overview
 
 This project demonstrates the implementation of a small Security Operations Center (SOC) monitoring environment using Splunk Enterprise.
